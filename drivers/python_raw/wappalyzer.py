@@ -4,8 +4,7 @@
 import os
 import re
 import sys
-import urllib
-from urlparse import urlparse
+import urllib2
 
 try:
     import json
@@ -49,7 +48,7 @@ class Wappalyzer(object):
             raise ValueError
 
         if not response:
-            response = urllib.urlopen(url)
+            response = urllib2.urlopen(url)
 
         url = response.url.split('#')[0]
         html = response.read()
